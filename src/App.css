@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: dimgrey;
+}
+
+button {
+  margin: 50px;
+  padding: 50px;
+  background-color: bisque;
+  border-radius: 20px;
+  font-size: larger;
+}

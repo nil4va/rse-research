@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
-import { debounce, throttle } from 'lodash';
+import React, { useState } from "react";
+import { debounce, throttle } from "lodash";
 
 const DebounceAndThrottle = () => {
-    const InputWithJustOnchange = () => {
-        const onChange = (e) => {
-            console.log("Just onchange value:", e.target.value);
-        };
-
-        return <input onChange={onChange} />;
+  const InputWithJustOnchange = () => {
+    const onChange = (e) => {
+      console.log("Just onchange value:", e.target.value);
     };
 
-    const InputWithDebouncedOnchange = () => {
-        const onChange = (e) => {
-            console.log("Debounce Changed value:", e.target.value);
-        };
+    return <input onChange={onChange} />;
+  };
 
-        const debouncedOnChange = debounce(onChange, 1000);
-
-        return <input onChange={debouncedOnChange} />;
+  const InputWithDebouncedOnchange = () => {
+    const onChange = (e) => {
+      console.log("Debounce Changed value:", e.target.value);
     };
 
-    const InputWithThrottledOnchange = () => {
-        const onChange = (e) => {
-            console.log("Throttle Changed value:", e.target.value);
-        };
+    const debouncedOnChange = debounce(onChange, 1000);
 
-        const throttledOnChange = throttle(onChange, 1000);
+    return <input onChange={debouncedOnChange} />;
+  };
 
-        return <input onChange={throttledOnChange} />;
+  const InputWithThrottledOnchange = () => {
+    const onChange = (e) => {
+      console.log("Throttle Changed value:", e.target.value);
     };
 
-    return (
-        <div>
-            <h3>Just onChange callback</h3>
-            <InputWithJustOnchange />
-            <h3>Debounced onChange</h3>
-            <InputWithDebouncedOnchange />
-            <h3>Throttled onChange</h3>
-            <InputWithThrottledOnchange />
-        </div>
-    );
+    const throttledOnChange = throttle(onChange, 1000);
+
+    return <input onChange={throttledOnChange} />;
+  };
+
+  return (
+    <div>
+      <h3>Just onChange callback</h3>
+      <InputWithJustOnchange />
+      <h3>Debounced onChange</h3>
+      <InputWithDebouncedOnchange />
+      <h3>Throttled onChange</h3>
+      <InputWithThrottledOnchange />
+    </div>
+  );
 };
 
 export default DebounceAndThrottle;
